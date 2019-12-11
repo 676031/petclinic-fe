@@ -21,7 +21,7 @@ RUN npm install
 # Скопировать исходники приложения
 COPY ./ /app/
 
-EXPOSE 3000
+EXPOSE 8080
 CMD [ "node", "server.js" ]
 #RUN npm run build
 
