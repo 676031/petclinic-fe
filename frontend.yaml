@@ -4,7 +4,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
  name: petclinic-fe
- # labels:
+ labels:
      # app: petclinic-fe
      # tier: frontend
      # track: stable
@@ -47,7 +47,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: petclinic-fe
 spec:
   type: LoadBalancer
   selector:
