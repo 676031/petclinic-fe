@@ -1,7 +1,7 @@
 # petclinic-frontend
 
-apiVersion: apps/v1beta1
-kind: StatefulSet
+apiVersion: apps/v1
+kind: Deployment
 metadata:
  name: petclinic-fe
  # labels:
@@ -9,10 +9,10 @@ metadata:
      # tier: frontend
      # track: stable
 spec:
-  serviceName: petclinic-fe
+  # serviceName: petclinic-fe
   replicas: 1
-  updateStrategy:
-    type: RollingUpdate
+  # updateStrategy:
+    # type: RollingUpdate
   selector:
     matchLabels:
       app: petclinic-be
@@ -32,14 +32,15 @@ spec:
         image: gcr.io/task1-260513/petclinic-fe:latest
         imagePullPolicy: Always
         ports:
-          - containerPort: 8080
-          - containerPort: 80
-          - containerPort: 3000
-          - containerPort: 4444
-          - containerPort: 443
+          - name: http
+            containerPort: 8080
+          #- containerPort: 80
+          #- containerPort: 3000
+          #- containerPort: 4444
+          #- containerPort: 443
         env:
-          - name: PORT
-            value: 8080
+          - name: "PORT"
+            value: "8080"
 
 
 ---
@@ -58,8 +59,4 @@ spec:
     - protocol: TCP
       # name: http
       port: 8080
-      targetPort: 8080
-    - protocol: TCP
-      # name: https
-      port: 443
-      targetPort: 443
+      targetPort: http
