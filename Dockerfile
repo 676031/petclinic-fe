@@ -8,7 +8,7 @@ COPY package*.json /app/
 RUN npm install
 # Скопировать исходники приложения
 COPY ./ /app/
-EXPOSE 8080
+EXPOSE 80
 # Используется при сборке кода в продакшене
 RUN npm run build:clean
 #CMD [ "node", "server.js" ]

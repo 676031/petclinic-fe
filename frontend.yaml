@@ -33,14 +33,14 @@ spec:
         imagePullPolicy: Always
         ports:
           - name: http
-            containerPort: 8080
+            containerPort: 80
           #- containerPort: 80
           #- containerPort: 3000
           #- containerPort: 4444
           #- containerPort: 443
         env:
           - name: "PORT"
-            value: "8080"
+            value: "80"
 
 
 ---
@@ -58,5 +58,5 @@ spec:
   ports:
     - protocol: "TCP"
       # name: http
-      port: 8080
-      targetPort: 8080
+      port: 80
+      targetPort: 80
