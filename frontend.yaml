@@ -47,16 +47,16 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: petclinic-fe
+  name: frontend-service
 spec:
   type: LoadBalancer
   selector:
     app: petclinic-be
-    tier: petclinic-fe
+    tier: frontend
   # ensure the client ip is propagated to avoid the invalid crumb issue when using LoadBalancer (k8s >=1.7)
   # externalTrafficPolicy: Local
   ports:
-    - protocol: TCP
+    - protocol: "TCP"
       # name: http
       port: 8080
-      targetPort: http
+      targetPort: 8080
