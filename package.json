@@ -13,7 +13,8 @@
     "start": "node server.js",
     "build:clean": "typings install && rimraf ./build && webpack --config webpack.config.js",
     "build:prod": "typings install && rimraf ./build && NODE_ENV=production webpack --config webpack.config.prod.js",
-    "verify": "sonarqube-verify"
+    "verify": "sonarqube-verify",
+	"sonar": "node sonar-project.js"
   },
   "author": "Nils Hartmann",
   "license": "ISC",
